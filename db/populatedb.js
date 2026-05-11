@@ -19,16 +19,20 @@ const createCategories = `INSERT INTO categories (category, image)
     ('Vegetable and Fruits', '/images/apple.svg'),
     ('Uncategorised', '/images/cross.svg');
     `;
+    
+const createSQLTable = `
+    CREATE TABLE IF NOT EXISTS inventory ( 
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+        name VARCHAR(50) UNIQUE NOT NULL, 
+        category_id INTEGER,
 
-const createSQLTable = `CREATE TABLE IF NOT EXISTS inventory ( 
-    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
-    name VARCHAR(50) UNIQUE, 
-    category_id INTEGER, 
-    quantity INTEGER, 
-    price DECIMAL(5, 2), 
-    brand VARCHAR(50), 
-    src TEXT DEFAULT '/images/cross.svg', 
-    description VARCHAR(200) 
+        quantity INTEGER NOT NULL CHECK (quantity >= 0),
+
+        price DECIMAL(10, 2) NOT NULL CHECK (price >= 0),
+
+        brand VARCHAR(50),
+        src TEXT DEFAULT '/images/cross.svg',
+        description VARCHAR(200)
     );
     `;
 
@@ -55,27 +59,29 @@ const createSQLData = `INSERT INTO inventory (
     `;
 
 async function main() {
-  console.log("seeding...");
-  const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
+
+    console.log("seeding...");
+    const client = new Client({
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
-  await client.connect();
-  console.log("Connected to database.")
 
-  await client.query(dropTables);
-  await client.query(createCategoriesTable);
-  await client.query(createSQLTable);
-  console.log("Tables created.")
+    await client.connect();
+    console.log("Connected to database.")
 
-  await client.query(createCategories);
-  await client.query(createSQLData);
-  console.log("Data created.")
+    await client.query(dropTables);
+    await client.query(createCategoriesTable);
+    await client.query(createSQLTable);
+    console.log("Tables created.")
 
-  await client.end();
-  console.log("Done.");
+    await client.query(createCategories);
+    await client.query(createSQLData);
+    console.log("Data created.")
+
+    await client.end();
+    console.log("Done.");
 }
 
 main();

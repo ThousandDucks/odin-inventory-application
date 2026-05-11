@@ -25,7 +25,9 @@ async function createProduct(req, res) {
 
 async function createProductPost(req, res) {
   try {
-    const { name, price, quantity, brand, description, category, src } = req.body;
+    const { name, brand, description, category, src } = req.body;
+    const price = req.body.price === "" ? null : parseFloat(req.body.price);
+    const quantity = req.body.quantity === "" ? null : parseInt(req.body.quantity, 10);
 
     await db.createProduct({
       name,
@@ -72,15 +74,18 @@ async function editProductGet(req, res) {
 async function editProductPost(req, res) {
   const id = req.params.id;
 
-  const { name, price, quantity, brand, description, category } = req.body;
-  console.log(id)
+  const { name, brand, description, category, src } = req.body;
+  const price = req.body.price === "" ? null : parseFloat(req.body.price);
+  const quantity = req.body.quantity === "" ? null : parseInt(req.body.quantity, 10);
+  
   await db.updateProduct(id, {
     name,
     price,
     quantity,
     brand,
     description,
-    category
+    category,
+    src
   });
 
   res.redirect(`/products/${id}`);

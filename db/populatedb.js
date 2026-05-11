@@ -1,4 +1,5 @@
 const { Client } = require("pg");
+require("dotenv").config();
 
 const dropTables = `DROP TABLE IF EXISTS inventory, categories;`;
 

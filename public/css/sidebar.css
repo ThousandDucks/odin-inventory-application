@@ -1,0 +1,45 @@
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-subheader {
+    font-weight: bold;
+}
+
+.sidebar form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.submit-button {
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "IBM Plex Sans";
+    font-weight: 600;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.form-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

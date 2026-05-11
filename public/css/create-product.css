@@ -1,0 +1,100 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    background: #f3e9d2;
+    border-radius: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-form label {
+    font-weight: 600;
+}
+
+.product-form input,
+.product-form select,
+.product-form textarea {
+    background-color: #fffdf7;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.product-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.price-quantity {
+    display: flex;
+    gap: 1rem;
+}
+
+.price-quantity .form-group {
+    flex: 1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.create-button {
+    padding: 0.9rem 1.2rem;
+    border: none;
+    border-radius: 20px;
+
+    background-color: black;
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-button {
+    padding: 0.9rem 1.2rem;
+    border-radius: 20px;
+
+    border: 1px solid black;
+    background: transparent;
+    color: black;
+
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    font-weight: 600;
+}
+
+.notice-panel {
+    background-color: #ffe5e5;
+    color: #b00020;
+    border: 1px solid #ffb3b3;
+
+    padding: 12px;
+    border-radius: 10px;
+
+    margin-bottom: 1rem;
+}

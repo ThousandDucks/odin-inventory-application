@@ -1,0 +1,65 @@
+main {
+    margin: 100px 100px;
+    background-color: #f3e9d2;
+    border-radius: 30px;
+}
+
+.products-header {
+    text-align: center;
+}
+
+.products-display {
+    display: flex;
+    padding: 0px 20px;
+    gap: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px;
+}
+
+.grid-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-grid-item img {
+    width: 150px;
+}
+
+.top-grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-link {
+    text-decoration: none;
+    color: black;
+}
+
+.product-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+.add-product-button {
+    display: inline-block;
+    padding: 10px 14px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-left: 20px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    font-family: "IBM Plex Sans";
+    justify-self: end;
+}

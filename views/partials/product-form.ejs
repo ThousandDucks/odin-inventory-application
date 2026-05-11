@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label>Quantity</label>
-            <input type="number" name="quantity" value="<%= product?.quantity || '' %>" required>
+            <input type="number" name="quantity" value="<%= product?.quantity || '' %>" min="0" required>
         </div>
     </div>
 

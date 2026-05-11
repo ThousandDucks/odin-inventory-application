@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/product-item.css">
+</head>
+<body>
+    
+<%- include('partials/navbar') %>
+
+<main>
+
+    <div class="product-item-top">
+        <h1><%= product.name %></h1>
+        <img src="<%= product.src %>" alt="<%= product.name %>" class="product-image">
+    </div>
+
+    <p><%= product.description %></p>
+
+    <div class="product-info">
+        <p><strong>Brand:</strong> <%= product.brand %></p>
+        <p><strong>Category:</strong> <%= product.category %></p>
+        <p><strong>Price:</strong> £<%= product.price %></p>
+        <p><strong>Stock:</strong> <%= product.quantity %></p>
+    </div>
+
+    <form class="product-nav" action="/products/<%= product.id %>/delete" method="POST" class="product-buttons">
+        <a class="products-link" href="/products">← Back to products</a>
+        <div class="product-buttons">
+            <a class="product-button" href="/products/<%= product.id %>/edit" class="edit-button">Edit</a>
+            <a class="product-button" href="/products/<%= product.id %>/confirm-delete">Delete</a>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>

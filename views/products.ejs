@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main>
+        <div class="product-top">
+            <div class="spacer"></div>
+            <h1 class="products-header">Products</h1>
+            <a href="/products/new" class="add-product-button">+ Add Product</a>
+        </div>
+
+        <div class="products-display">
+            <%- include('partials/sidebar') %>
+            <div class="product-grid">
+                <% products.forEach(product => { %>
+                    <a href="/products/<%= product.id %>" class="product-link">
+                        <div class="product-grid-item">
+                            <div class="grid-img-container"><img src="<%= product.src %>" alt="<%= product.name %>"></div>
+                            <div class="top-grid-item">
+                                <h3><%= product.name %></h3>
+                                <p><strong>£<%= product.price %></strong></p>
+                            </div>
+                            <div>Brand: <%= product.brand %></div>
+                            <p>Stock: <%= product.quantity %></p>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

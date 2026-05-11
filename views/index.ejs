@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
+<body>
+    <%- include('partials/navbar') %>
+
+    <main>
+        <div class="home-left">
+            <h1 class="home-header">Inventory Manager</h1>
+            <p class="home-header-text">Manage products, categories, stock and pricing in one place.</p>
+            <div class="stats">
+                <div>Total Products: <%= productCount %></div>
+                <div>Total Categories: <%= categoryCount %></div>
+            </div>
+            <div class="home-buttons">
+                <a href="/products">View Products</a>
+                <a href="/categories">View Categories</a>
+            </div>
+        </div>
+        <div class="home-right">
+            <img class="hero-image" src="/images/warehouse.svg" alt="Warehouse">
+        </div>
+    </main>
+</body>
+
+</html>

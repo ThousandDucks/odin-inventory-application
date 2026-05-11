@@ -1,0 +1,63 @@
+<form class="product-form" method="POST" action="<%= action %>">
+    <% if (typeof error !== "undefined" && error) { %>
+        <section class="notice-panel">
+            <p><%= error %></p>
+        </section>
+    <% } %>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" value="<%= product?.name || '' %>">
+    </div>
+
+    <div class="price-quantity">
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" name="price" value="<%= product?.price || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" name="quantity" value="<%= product?.quantity || '' %>">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Brand</label>
+        <input type="text" name="brand" value="<%= product?.brand || '' %>">
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description"><%= product?.description || '' %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Image URL</label>
+        <input 
+            type="text" 
+            name="src">
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <select name="category" required>
+            <option value="" disabled selected hidden>Select a category</option>
+            <% categories.forEach(c => { %>
+                <option value="<%= c.id %>"
+                    <%= product && c.id === product.category_id ? "selected" : "" %>>
+                    <%= c.category %>
+                </option>
+            <% }) %>
+
+        </select>
+    </div>
+
+    <div class="form-actions">
+        <a class="cancel-button" href="/products">Cancel</a>
+        <button class="create-button" type="submit">
+            <%= product ? "Update Product" : "Create Product" %>
+        </button>
+    </div>
+
+</form>

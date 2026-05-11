@@ -1,0 +1,51 @@
+<div class="sidebar">
+    <h2 class="sidebar-header">Filter by:</h2>
+    <form method="GET" action="/products">
+        <div class="form-section">
+            <div class="sidebar-subheader">Sort by Price</div>
+            <div class="form-filter">
+                <label>
+                    <input type="radio" name="sort" value="price_asc"
+                        <%= filters.sort === "price_asc" ? "checked" : "" %>>
+                    Ascending
+                </label>
+                <label>
+                    <input type="radio" name="sort" value="price_desc"
+                        <%= filters.sort === "price_desc" ? "checked" : "" %>>
+                    Descending
+                </label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="sidebar-subheader">Sort by Stock</div>
+            <div class="form-filter">
+                <label>
+                    <input type="radio" name="sort" value="stock_asc"
+                        <%= filters.sort === "stock_asc" ? "checked" : "" %>>
+                    Ascending
+                </label>
+                <label>
+                    <input type="radio" name="sort" value="stock_desc"
+                        <%= filters.sort === "stock_desc" ? "checked" : "" %>>
+                    Descending
+                </label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="sidebar-subheader">Category</div>
+
+            <% categories.forEach(category => { %>
+                <label>
+                    <input type="checkbox" name="category" value="<%= category.id %>"
+                        <%= filters.category && filters.category.includes(String(category.id)) ? "checked" : "" %>>
+                    <%= category.category %>
+                </label>
+            <% }) %>
+        </div>
+
+        <input class="submit-button" type="submit" value="Apply Filters">
+    </form>
+
+</div>

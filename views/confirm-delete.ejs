@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/confirm-delete.css">
+</head>
+<body>
+
+<%- include('partials/navbar') %>
+
+<main>
+    <h1>Confirm Delete</h1>
+
+    <div class="confirm-form">
+        <p>This action requires a password.</p>
+        <form method="POST" action="<%= deleteUrl %>">
+            <% if (error) { %>
+                <section class="notice-panel">
+                    <p><%= error %></p>
+                </section>
+            <% } %>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div>
+            <button class="confirm-button" type="submit">Confirm Delete</button>
+            <a class="cancel-button" href="<%= cancelUrl %>">Cancel</a>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

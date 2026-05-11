@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/categories.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <main>
+        <div class="category-top">
+            <div class="spacer"></div>
+            <h1 class="categories-header">Categories</h1>
+            <a class="add-category-button" href="/categories/new" class="add-category-button">+ Add Category</a>
+        </div>
+        <div class="categories-grid">
+            <% categories.forEach(category => { %>
+                <div class="category-card">
+                    <a href="/products?category=<%= encodeURIComponent(category.id) %>" class="category-link">
+                        <h2><%= category.category %></h2>
+                        <img class="category-image" src="<%= category.image %>" alt="<%= category.category %>">
+                        <div><%= category.product_count %> <%= category.product_count === 1 ? "product" : "products" %></div>
+                    </a>
+                    <a class="delete-button" href="/categories/<%= category.id %>/confirm-delete" class="delete-button">Delete</a>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

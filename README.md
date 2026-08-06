@@ -13,10 +13,6 @@ This project was built using Node.js, Express, PostgreSQL, and EJS as part of my
 
 <img width="1920" height="2086" alt="image" src="https://github.com/user-attachments/assets/da10ca8a-489b-4c8b-a55f-d6dad929ef4f" />
 
-<img width="1920" height="1247" alt="image" src="https://github.com/user-attachments/assets/10657fc5-a851-4288-8afd-1d625d26ea4c" />
-
-<img width="1920" height="1621" alt="image" src="https://github.com/user-attachments/assets/a816a764-4522-4636-865c-c06df38fc1af" />
-
 ## Features
 
 - Create, view, edit, and delete inventory items
